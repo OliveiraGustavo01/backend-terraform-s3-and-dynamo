@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.66.1"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 resource "aws_kms_key" "terraform-bucket-key" {
   description             = "Encrypt bucket objects"
   deletion_window_in_days = 10
